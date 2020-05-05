@@ -1,0 +1,9 @@
+{
+  "name": "estrelas-ar",
+  "description": "teste app",
+  "version": "0.0.1",
+  "engines": {
+    "npm": "6.x",
+    "node-js": "12.16.x"
+  }
+}
