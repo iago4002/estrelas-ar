@@ -70,7 +70,6 @@ window.onload = () => {
                 const placeText = document.createElement('a-text');
                 placeText.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
                 placeText.setAttribute('value', place.name);
-                placeText.setAttribute('look-at', '[gps-camera]')
                 placeText.setAttribute('scale', '15 15 15');
                 placeText.setAttribute('position', '0 0 0');
                 
