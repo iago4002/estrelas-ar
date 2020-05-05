@@ -45,7 +45,7 @@ window.onload = () => {
                     const longitude = place.location.lng;                    
                     // add place name
                     const placeText = document.createElement('a-link');
-                    placeText.setAttribute('gps-entity-place', `yPosition: 100; latitude: ${latitude}; longitude: ${longitude};`);
+                    placeText.setAttribute('gps-entity-place', `yPosition: 500; latitude: ${latitude}; longitude: ${longitude};`);
                     placeText.setAttribute('title', place.name);
                     placeText.setAttribute('scale', '15 15 15');
                     
