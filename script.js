@@ -8,10 +8,10 @@ function loadPlaces(position) {
     };
 
     // CORS Proxy to avoid CORS problems
-    const corsProxy = 'https://cors-anywhere.herokuapp.com/';
+    //const corsProxy = 'https://estrelas-ar.herokuapp.com/';
 
     // Foursquare API (limit param: number of maximum places to fetch)
-    const endpoint = `${corsProxy}https://api.foursquare.com/v2/venues/search?intent=checkin
+    const endpoint = `https://api.foursquare.com/v2/venues/search?intent=checkin
         &ll=${position.latitude},${position.longitude}
         &radius=${params.radius}
         &client_id=${params.clientId}
@@ -42,8 +42,7 @@ window.onload = () => {
             .then((places) => {
                 places.forEach((place) => {
                     const latitude = place.location.lat;
-                    const longitude = place.location.lng;
-                    console.log('lat')
+                    const longitude = place.location.lng;                    
                     // add place name
                     const placeText = document.createElement('a-link');
                     placeText.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
@@ -56,6 +55,18 @@ window.onload = () => {
 
                     scene.appendChild(placeText);
                 });
+                const latitude = "-23.674151";
+                const longitude = "-46.736240";                    
+                // add place name
+                const placeText = document.createElement('a-link');
+                placeText.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
+                placeText.setAttribute('title', 'Teste');
+                placeText.setAttribute('scale', '15 15 15');
+                
+                placeText.addEventListener('loaded', () => {
+                    window.dispatchEvent(new CustomEvent('gps-entity-place-loaded'))
+                });
+                scene.appendChild(placeText);
             })
     },
         (err) => console.error('Error in retrieving position', err),
