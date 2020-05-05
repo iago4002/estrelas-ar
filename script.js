@@ -33,14 +33,37 @@ function loadPlaces(position) {
 
 window.onload = () => {
     const scene = document.querySelector('a-scene');
+    places_fixed = [
+      {
+        'location': {
+          'lat': '-23.4551376',
+          'lng': '-46.5936074'
+        },
+        'name': 'Teste 1'
+      },
+      {
+        'location': {
+          'lat': '-23.674034',
+          'lng': '-46.736119'
+        },
+        'name': 'Teste 2'
+      },
+      {
+        'location': {
+          'lat': '-23.674648',
+          'lng': '-46.736732'
+        },
+        'name': 'Teste 3'
+      }
+    ]
 
     // first get current user location
     return navigator.geolocation.getCurrentPosition(function (position) {
 
         // than use it to load from remote APIs some places nearby
-        loadPlaces(position.coords)
-            .then((places) => {
-                places.forEach((place) => {
+        // loadPlaces(position.coords)
+        //     .then((places) => {
+              places_fixed.forEach((place) => {
                     const latitude = place.location.lat;
                     const longitude = place.location.lng;                    
                     // add place name
@@ -48,7 +71,6 @@ window.onload = () => {
                     placeText.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
                     placeText.setAttribute('value', place.name);
                     placeText.setAttribute('scale', '15 15 15');
-                    placeText.setAttribute('position', '0 30 0');
                     
                     placeText.addEventListener('loaded', () => {
                         window.dispatchEvent(new CustomEvent('gps-entity-place-loaded'))
@@ -56,7 +78,7 @@ window.onload = () => {
 
                     scene.appendChild(placeText);
                 });              
-            })
+            //})
     },
         (err) => console.error('Error in retrieving position', err),
         {
