@@ -44,12 +44,11 @@ window.onload = () => {
                     const latitude = place.location.lat;
                     const longitude = place.location.lng;                    
                     // add place name
-                    const placeText = document.createElement('a-box');
+                    const placeText = document.createElement('a-text');
                     placeText.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
-                    //placeText.setAttribute('title', place.name);
-                    placeText.setAttribute('material', 'color: red');
+                    placeText.setAttribute('value', place.name);
                     placeText.setAttribute('scale', '15 15 15');
-                    placeText.setAttribute('position', '0 1000 0');
+                    placeText.setAttribute('position', '0 600 0');
                     
                     placeText.addEventListener('loaded', () => {
                         window.dispatchEvent(new CustomEvent('gps-entity-place-loaded'))
