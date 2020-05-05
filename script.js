@@ -44,31 +44,19 @@ window.onload = () => {
                     const latitude = place.location.lat;
                     const longitude = place.location.lng;                    
                     // add place name
-                    const placeText = document.createElement('a-link');
+                    const placeText = document.createElement('a-box');
                     placeText.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
-                    placeText.setAttribute('title', place.name);
+                    //placeText.setAttribute('title', place.name);
+                    placeText.setAttribute('material', 'color: red');
                     placeText.setAttribute('scale', '15 15 15');
-                    placeText.setAttribute('position', '0 0 0');
+                    placeText.setAttribute('position', '0 30 0');
                     
                     placeText.addEventListener('loaded', () => {
                         window.dispatchEvent(new CustomEvent('gps-entity-place-loaded'))
                     });
 
                     scene.appendChild(placeText);
-                });
-                
-                const latitude = "-23.674151";
-                const longitude = "-46.736240";                    
-                // add place name
-                const placeText = document.createElement('a-link');
-                placeText.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
-                placeText.setAttribute('title', 'Teste');
-                placeText.setAttribute('scale', '15 15 15');
-                
-                placeText.addEventListener('loaded', () => {
-                    window.dispatchEvent(new CustomEvent('gps-entity-place-loaded'))
-                });
-                scene.appendChild(placeText);
+                });              
             })
     },
         (err) => console.error('Error in retrieving position', err),
