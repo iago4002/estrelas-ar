@@ -49,7 +49,7 @@ window.onload = () => {
                     //placeText.setAttribute('title', place.name);
                     placeText.setAttribute('material', 'color: red');
                     placeText.setAttribute('scale', '15 15 15');
-                    placeText.setAttribute('position', '0 800 0');
+                    placeText.setAttribute('position', '0 1000 0');
                     
                     placeText.addEventListener('loaded', () => {
                         window.dispatchEvent(new CustomEvent('gps-entity-place-loaded'))
