@@ -64,20 +64,20 @@ window.onload = () => {
         // loadPlaces(position.coords)
         //     .then((places) => {
               places_fixed.forEach((place) => {
-                    const latitude = place.location.lat;
-                    const longitude = place.location.lng;                    
-                    // add place name
-                    const placeText = document.createElement('a-text');
-                    placeText.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
-                    placeText.setAttribute('value', place.name);
-                    placeText.setAttribute('scale', '15 15 15');
-                    
-                    placeText.addEventListener('loaded', () => {
-                        window.dispatchEvent(new CustomEvent('gps-entity-place-loaded'))
-                    });
+                const latitude = place.location.lat;
+                const longitude = place.location.lng;                    
+                // add place name
+                const placeText = document.createElement('a-text');
+                placeText.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
+                placeText.setAttribute('value', place.name);
+                placeText.setAttribute('position', '0 3 0');
+                
+                placeText.addEventListener('loaded', () => {
+                    window.dispatchEvent(new CustomEvent('gps-entity-place-loaded'))
+                });
 
-                    scene.appendChild(placeText);
-                });              
+                scene.appendChild(placeText);
+              });              
             //})
     },
         (err) => console.error('Error in retrieving position', err),
