@@ -72,7 +72,7 @@ window.onload = () => {
                 placeText.setAttribute('value', place.name);
                 placeText.setAttribute('look-at', '[gps-camera]')
                 placeText.setAttribute('scale', '15 15 15');
-                placeText.setAttribute('position', '0 1 0');
+                placeText.setAttribute('position', '0 0 0');
                 
                 placeText.addEventListener('loaded', () => {
                     window.dispatchEvent(new CustomEvent('gps-entity-place-loaded'))
