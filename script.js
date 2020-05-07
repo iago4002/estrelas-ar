@@ -63,22 +63,22 @@ window.onload = () => {
         // than use it to load from remote APIs some places nearby
         // loadPlaces(position.coords)
         //     .then((places) => {
-              places_fixed.forEach((place) => {
-                const latitude = place.location.lat;
-                const longitude = place.location.lng;                    
-                // add place name
-                const placeText = document.createElement('a-text');
-                placeText.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
-                placeText.setAttribute('value', place.name);
-                placeText.setAttribute('scale', '15 15 15');
-                placeText.setAttribute('height', '30');
+              // places_fixed.forEach((place) => {
+              //   const latitude = place.location.lat;
+              //   const longitude = place.location.lng;                    
+              //   // add place name
+              //   const placeText = document.createElement('a-text');
+              //   placeText.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
+              //   placeText.setAttribute('value', place.name);
+              //   placeText.setAttribute('scale', '15 15 15');
+              //   placeText.setAttribute('height', '30');
                 
-                placeText.addEventListener('loaded', () => {
-                    window.dispatchEvent(new CustomEvent('gps-entity-place-loaded'))
-                });
+              //   placeText.addEventListener('loaded', () => {
+              //       window.dispatchEvent(new CustomEvent('gps-entity-place-loaded'))
+              //   });
 
-                scene.appendChild(placeText);
-              });              
+              //   scene.appendChild(placeText);
+              // });              
             //})
     },
         (err) => console.error('Error in retrieving position', err),
