@@ -91,5 +91,6 @@ window.onload = () => {
 };
 
 setTimeout(function(){
+  document.getElementById("text1").setAttribute("position", "{x: 0, y: 0, z: 0}")
   alert(JSON.stringify(document.getElementById("text1").getAttribute("position")))
 }, 5000)
