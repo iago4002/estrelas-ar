@@ -89,7 +89,3 @@ window.onload = () => {
         }
     );
 };
-
-setTimeout(function(){
-  alert("TEste")
-}, 3000)
