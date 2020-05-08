@@ -91,5 +91,5 @@ window.onload = () => {
 };
 
 setTimeout(function(){
-  console.log(document.getElementById("text1").getAttribute("position"))
+  alert(document.getElementById("text1").getAttribute("position"))
 }, 5000)
