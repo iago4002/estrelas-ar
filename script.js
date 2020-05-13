@@ -84,6 +84,7 @@ window.onload = () => {
                 placeText.setAttribute('value', place.message);
                 placeText.setAttribute('scale', '25 25 25');
                 placeText.setAttribute('height', '30');
+                placeText.setAttribute('rotation', '0 90 0');
                 
                 placeText.addEventListener('loaded', () => {
                     window.dispatchEvent(new CustomEvent('gps-entity-place-loaded'))
