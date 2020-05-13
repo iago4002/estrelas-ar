@@ -8,7 +8,9 @@ function loadPlaces(position) {
     };
 
     // Foursquare API (limit param: number of maximum places to fetch)
-    endpoint = "https://estrelas-277117.uk.r.appspot.com/api/v1/messages"
+    var url = new URL(window.location.href);
+    var c = url.searchParams.get("code");
+    endpoint = "https://estrelas-277117.uk.r.appspot.com/api/v1/messages?code=" + c
     return fetch(endpoint, {method: 'GET'})
       .then((res) => {
         return res.json()
@@ -80,7 +82,7 @@ window.onload = () => {
                 const placeText = document.createElement('a-text');
                 placeText.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
                 placeText.setAttribute('value', place.name);
-                placeText.setAttribute('scale', '15 15 15');
+                placeText.setAttribute('scale', '25 25 25');
                 placeText.setAttribute('height', '30');
                 
                 placeText.addEventListener('loaded', () => {
