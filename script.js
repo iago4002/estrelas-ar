@@ -11,23 +11,25 @@ function loadPlaces(position) {
     //const corsProxy = 'https://estrelas-ar.herokuapp.com/';
 
     // Foursquare API (limit param: number of maximum places to fetch)
-    const endpoint = `https://api.foursquare.com/v2/venues/search?intent=checkin
-        &ll=${position.latitude},${position.longitude}
-        &radius=${params.radius}
-        &client_id=${params.clientId}
-        &client_secret=${params.clientSecret}
-        &limit=30 
-        &v=${params.version}`;
-    return fetch(endpoint)
-        .then((res) => {
-            return res.json()
-                .then((resp) => {
-                    return resp.response.venues;
-                })
-        })
-        .catch((err) => {
-            console.error('Error with places API', err);
-        })
+    // const endpoint = `https://api.foursquare.com/v2/venues/search?intent=checkin
+    //     &ll=${position.latitude},${position.longitude}
+    //     &radius=${params.radius}
+    //     &client_id=${params.clientId}
+    //     &client_secret=${params.clientSecret}
+    //     &limit=30 
+    //     &v=${params.version}`;
+    
+    endpoint = "https://estrelas-277117.uk.r.appspot.com/api/v1/messages"
+    return fetch(endpoint, {method: 'GET'})
+      .then((res) => {
+        return res.json()
+          .then((resp) => {
+            return resp;
+          })
+      })
+      .catch((err) => {
+        console.error('Error with places API', err);
+    })
 };
 
 
@@ -63,14 +65,14 @@ window.onload = () => {
         // than use it to load from remote APIs some places nearby
         loadPlaces(position.coords)
             .then((places) => {
-              places.forEach((place) => {
-                const latitude = place.location.lat;
-                const longitude = place.location.lng;                    
+              places_fixed.forEach((place) => {
+                const latitude = place.lat;
+                const longitude = place.lng;                    
                 // add place name
                 const placeText = document.createElement('a-text');
                 placeText.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
-                placeText.setAttribute('value', place.name);
-                placeText.setAttribute('scale', '15 15 15');
+                placeText.setAttribute('value', place.message);
+                placeText.setAttribute('scale', '25 25 25');
                 placeText.setAttribute('height', '30');
                 
                 placeText.addEventListener('loaded', () => {
@@ -89,8 +91,3 @@ window.onload = () => {
         }
     );
 };
-
-setTimeout(function(){
-  //document.getElementById("text1").setAttribute("position", "{x: 0, y: 0, z: 0}")
-  alert(JSON.stringify(document.getElementById("text1").getAttribute("position")))
-}, 5000)
