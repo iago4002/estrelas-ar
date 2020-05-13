@@ -79,7 +79,7 @@ window.onload = () => {
                 const placeText = document.createElement('a-text');
                 placeText.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
                 placeText.setAttribute('value', place.name);
-                placeText.setAttribute('scale', '25 25 25');
+                placeText.setAttribute('scale', '15 15 15');
                 placeText.setAttribute('height', '30');
                 
                 placeText.addEventListener('loaded', () => {
@@ -87,7 +87,7 @@ window.onload = () => {
                 });
 
                 scene.appendChild(placeText);
-              });              
+              });
             })
     },
         (err) => console.error('Error in retrieving position', err),
