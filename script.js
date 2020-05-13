@@ -8,35 +8,35 @@ function loadPlaces(position) {
     };
 
     // Foursquare API (limit param: number of maximum places to fetch)
-    endpoint = "https://estrelas-277117.uk.r.appspot.com/api/v1/messages"
-    return fetch(endpoint, {method: 'GET'})
-      .then((res) => {
-        return res.json()
-          .then((resp) => {
-            return resp;
-          })
-      })
-      .catch((err) => {
-        console.error('Error with places API', err);
-    })
+    // endpoint = "https://estrelas-277117.uk.r.appspot.com/api/v1/messages"
+    // return fetch(endpoint, {method: 'GET'})
+    //   .then((res) => {
+    //     return res.json()
+    //       .then((resp) => {
+    //         return resp;
+    //       })
+    //   })
+    //   .catch((err) => {
+    //     console.error('Error with places API', err);
+    // })
     
-    // const endpoint = `https://api.foursquare.com/v2/venues/search?intent=checkin
-    //     &ll=${position.latitude},${position.longitude}
-    //     &radius=${params.radius}
-    //     &client_id=${params.clientId}
-    //     &client_secret=${params.clientSecret}
-    //     &limit=30 
-    //     &v=${params.version}`;
-    // return fetch(endpoint)
-    //     .then((res) => {
-    //         return res.json()
-    //             .then((resp) => {
-    //                 return resp.response.venues;
-    //             })
-    //     })
-    //     .catch((err) => {
-    //         console.error('Error with places API', err);
-    //     })
+    const endpoint = `https://api.foursquare.com/v2/venues/search?intent=checkin
+        &ll=${position.latitude},${position.longitude}
+        &radius=${params.radius}
+        &client_id=${params.clientId}
+        &client_secret=${params.clientSecret}
+        &limit=30 
+        &v=${params.version}`;
+    return fetch(endpoint)
+        .then((res) => {
+            return res.json()
+                .then((resp) => {
+                    return resp.response.venues;
+                })
+        })
+        .catch((err) => {
+            console.error('Error with places API', err);
+        })
 };
 
 
@@ -72,13 +72,14 @@ window.onload = () => {
         // than use it to load from remote APIs some places nearby
         loadPlaces(position.coords)
             .then((places) => {
-              places.forEach((place) => {
-                const latitude = place.lat;
-                const longitude = place.lng;                    
+              alert(JSON.stringify(places))
+              places.forEach((place) => {                
+                const latitude = place.location.lat;
+                const longitude = place.location.lng;                    
                 // add place name
                 const placeText = document.createElement('a-text');
                 placeText.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
-                placeText.setAttribute('value', place.message);
+                placeText.setAttribute('value', place.name);
                 placeText.setAttribute('scale', '15 15 15');
                 placeText.setAttribute('height', '30');
                 
