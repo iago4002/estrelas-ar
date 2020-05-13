@@ -72,7 +72,7 @@ window.onload = () => {
         // than use it to load from remote APIs some places nearby
         loadPlaces(position.coords)
             .then((places) => {
-              places_fixed.forEach((place) => {
+              places.forEach((place) => {
                 const latitude = place.location.lat;
                 const longitude = place.location.lng;                    
                 // add place name
@@ -90,11 +90,11 @@ window.onload = () => {
               });
             })
     },
-        (err) => console.error('Error in retrieving position', err),
+      (err) => console.error('Error in retrieving position', err),
         {
-            enableHighAccuracy: true,
-            maximumAge: 0,
-            timeout: 27000,
+          enableHighAccuracy: true,
+          maximumAge: 0,
+          timeout: 27000,
         }
     );
 };
