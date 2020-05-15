@@ -92,7 +92,7 @@ window.onload = () => {
                 place = places[0]                             
                 const latitude = position.coords.latitude;
                 const longitude = position.coords.longitude;
-                alert(round(latitude + 0.0000146, latitude.toString().length).toString() + " " + round(longitude + 0.0000175, longitude.toString().length).toString())
+                alert(`latitude: ${ round(latitude + 0.0000146, latitude.toString().length).toString() }; longitude: ${ round(longitude + 0.0000175, longitude.toString().length).toString() };`)
                 // add place name
                 const placeText = document.createElement('a-text');                
                 placeText.setAttribute('gps-entity-place', `latitude: ${ round(latitude + 0.0000146, latitude.toString().length).toString() }; longitude: ${ round(longitude + 0.0000175, longitude.toString().length).toString() };`);
