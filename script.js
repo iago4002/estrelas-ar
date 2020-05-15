@@ -90,8 +90,8 @@ window.onload = () => {
             .then((places) => {
               //places.forEach((place) => {
                 place = places[0]                
-                const latitude = place.lat;
-                const longitude = place.lng;                    
+                const latitude = position.coords.latitude;
+                const longitude = position.coords.longitude;                    
                 // add place name
                 const placeText = document.createElement('a-text');                
                 placeText.setAttribute('gps-entity-place', `latitude: ${ round(parseInt(latitude) + 0.000146, 6).toString() }; longitude: ${ round(parseInt(longitude) + 0.000175, 6).toString() };`);
