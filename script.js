@@ -89,10 +89,10 @@ window.onload = () => {
         loadPlaces(position.coords)
             .then((places) => {
               //places.forEach((place) => {
-                place = places[0]
-                alert(position.coords.latitude.toString() + " " + position.coords.longitude.toString())                
+                place = places[0]                             
                 const latitude = position.coords.latitude;
-                const longitude = position.coords.longitude;                    
+                const longitude = position.coords.longitude;
+                alert(round(parseInt(latitude) + 0.0000146, latitude.toString().length).toString() + " " + round(parseInt(longitude) + 0.0000175, longitude.toString().length).toString())
                 // add place name
                 const placeText = document.createElement('a-text');                
                 placeText.setAttribute('gps-entity-place', `latitude: ${ round(parseInt(latitude) + 0.0000146, latitude.toString().length).toString() }; longitude: ${ round(parseInt(longitude) + 0.0000175, longitude.toString().length).toString() };`);
