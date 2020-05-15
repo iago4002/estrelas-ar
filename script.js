@@ -89,7 +89,8 @@ window.onload = () => {
         loadPlaces(position.coords)
             .then((places) => {
               //places.forEach((place) => {
-                place = places[0]                
+                place = places[0]
+                alert(position.coords.latitude.toString() + " " + position.coords.longitude.toString())                
                 const latitude = position.coords.latitude;
                 const longitude = position.coords.longitude;                    
                 // add place name
