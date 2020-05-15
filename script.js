@@ -1,12 +1,5 @@
 // getting places from APIs
 function loadPlaces(position) {
-    const params = {
-        radius: 300,    // search places not farther than this value (in meters)
-        clientId: '2AKDDBDIUOBMSEWJPITO1BMZFG2S2LJLKMELJ4KEBYZUJKOX',
-        clientSecret: 'WWPKKJS1VNT3ZYVCWRSRDMB2Z2O1XC3VARFDMZWD3UJGBAH5',
-        version: '20300101',    // foursquare versioning, required but unuseful for this demo
-    };
-
     // Foursquare API (limit param: number of maximum places to fetch)
     var url = new URL(window.location.href);
     var c = url.searchParams.get("code");
@@ -21,24 +14,6 @@ function loadPlaces(position) {
       .catch((err) => {
         console.error('Error with places API', err);
     })
-    
-    // const endpoint = `https://api.foursquare.com/v2/venues/search?intent=checkin
-    //     &ll=${position.latitude},${position.longitude}
-    //     &radius=${params.radius}
-    //     &client_id=${params.clientId}
-    //     &client_secret=${params.clientSecret}
-    //     &limit=30 
-    //     &v=${params.version}`;
-    // return fetch(endpoint)
-    //     .then((res) => {
-    //         return res.json()
-    //             .then((resp) => {
-    //                 return resp.response.venues;
-    //             })
-    //     })
-    //     .catch((err) => {
-    //         console.error('Error with places API', err);
-    //     })
 };
 
 const round = (num, places) => {
@@ -58,30 +33,6 @@ const round = (num, places) => {
 
 window.onload = () => {
     const scene = document.querySelector('a-scene');
-    places_fixed = [
-      {
-        'location': {
-          'lat': '-23.4551376',
-          'lng': '-46.5936074'
-        },
-        'name': 'Teste 1'
-      },
-      {
-        'location': {
-          'lat': '-23.674034',
-          'lng': '-46.736119'
-        },
-        'name': 'Teste 2'
-      },
-      {
-        'location': {
-          'lat': '-23.674648',
-          'lng': '-46.736732'
-        },
-        'name': 'Teste 3'
-      }
-    ]
-
     // first get current user location
     return navigator.geolocation.getCurrentPosition(function (position) {
 
@@ -92,12 +43,11 @@ window.onload = () => {
                 place = places[0]                             
                 const latitude = position.coords.latitude;
                 const longitude = position.coords.longitude;
-                alert(`latitude: ${ round(latitude + 0.000278, latitude.toString().length).toString() }; longitude: ${ round(longitude + 0.000985, longitude.toString().length).toString() };`)
                 // add place name
                 const placeText = document.createElement('a-text');                
                 placeText.setAttribute('gps-entity-place', `latitude: ${ round(latitude + 0.000278, latitude.toString().length).toString() }; longitude: ${ round(longitude + 0.000985, longitude.toString().length).toString() };`);
                 placeText.setAttribute('value', place.message);
-                placeText.setAttribute('rotation', '-10 -140 0');
+                placeText.setAttribute('rotation', '-10 -60 0');
                 placeText.setAttribute('scale', '20 20 20');
                 placeText.setAttribute('height', '30');
                 
