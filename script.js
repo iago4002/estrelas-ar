@@ -92,10 +92,10 @@ window.onload = () => {
                 place = places[0]                             
                 const latitude = position.coords.latitude;
                 const longitude = position.coords.longitude;
-                alert(`latitude: ${ round(latitude + 0.0000146, latitude.toString().length).toString() }; longitude: ${ round(longitude + 0.0000175, longitude.toString().length).toString() };`)
+                alert(`latitude: ${ round(latitude + 0.000146, latitude.toString().length).toString() }; longitude: ${ round(longitude + 0.000175, longitude.toString().length).toString() };`)
                 // add place name
                 const placeText = document.createElement('a-text');                
-                placeText.setAttribute('gps-entity-place', `latitude: ${ round(latitude + 0.0000146, latitude.toString().length).toString() }; longitude: ${ round(longitude + 0.0000175, longitude.toString().length).toString() };`);
+                placeText.setAttribute('gps-entity-place', `latitude: ${ round(latitude + 0.000146, latitude.toString().length).toString() }; longitude: ${ round(longitude + 0.000175, longitude.toString().length).toString() };`);
                 placeText.setAttribute('value', place.message);
                 placeText.setAttribute('scale', '25 25 25');
                 placeText.setAttribute('height', '30');
