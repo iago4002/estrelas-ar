@@ -1,0 +1,29 @@
+insert messages (message, lat, lng, identify) values ("Mensagem para te deixar feliz", "-23.486956", "-46.607399", "7d7e23ed-0111-499a-9c82-64eb1eb8a3ca");
+
+insert messages (message, lat, lng, identify) values ("Corona Virus", "-23.486771", "-46.607214", "7d7e23ed-0111-499a-9c82-64eb1eb8a3ca");
+
+insert messages (message, lat, lng, identify) values ("Bolsonaro", "-23.486673", "-46.606999", "7d7e23ed-0111-499a-9c82-64eb1eb8a3ca");
+
+insert messages (message, lat, lng, identify) values ("Atualidades", "-23.486732", "-46.606851", "7d7e23ed-0111-499a-9c82-64eb1eb8a3ca");
+
+insert messages (message, lat, lng, identify) values ("Essas mensagens não são links", "-23.486870", "-46.606695", "7d7e23ed-0111-499a-9c82-64eb1eb8a3ca");
+
+insert messages (message, lat, lng, identify) values ("Essas mensagens não possuem efeito de click", "-23.487023", "-46.606891", "7d7e23ed-0111-499a-9c82-64eb1eb8a3ca");
+
+insert messages (message, lat, lng, identify) values ("São mensagens somente para a leitura", "-23.487121", "-46.607065", "7d7e23ed-0111-499a-9c82-64eb1eb8a3ca");
+
+insert messages (message, lat, lng, identify) values ("Teste 1", "-23.487291", "-46.607196", "7d7e23ed-0111-499a-9c82-64eb1eb8a3ca");
+
+insert messages (message, lat, lng, identify) values ("Teste 2", "-23.487087", "-46.607317", "7d7e23ed-0111-499a-9c82-64eb1eb8a3ca");
+
+insert messages (message, lat, lng, identify) values ("Teste 3", "-23.486917", "-46.607564", "7d7e23ed-0111-499a-9c82-64eb1eb8a3ca");
+
+insert messages (message, lat, lng, identify) values ("Mensagem que não acaba mais", "-23.487045", "-46.607564", "7d7e23ed-0111-499a-9c82-64eb1eb8a3ca");
+
+insert messages (message, lat, lng, identify) values ("Texto texto texto e mais texto", "-23.487131", "-46.607425", "7d7e23ed-0111-499a-9c82-64eb1eb8a3ca");
+
+insert messages (message, lat, lng, identify) values ("Moana Disney", "-23.486799", "-46.607546", "7d7e23ed-0111-499a-9c82-64eb1eb8a3ca");
+
+ID: 7d7e23ed-0111-499a-9c82-64eb1eb8a3ca
+
+https://iago4002.github.io/estrelas-ar/?code=7d7e23ed-0111-499a-9c82-64eb1eb8a3ca

@@ -41,6 +41,20 @@ function loadPlaces(position) {
     //     })
 };
 
+const round = (num, places) => {
+	if (!("" + num).includes("e")) {
+		return +(Math.round(num + "e+" + places)  + "e-" + places);
+	} else {
+		let arr = ("" + num).split("e");
+		let sig = ""
+		if (+arr[1] + places > 0) {
+			sig = "+";
+		}
+
+		return +(Math.round(+arr[0] + "e" + sig + (+arr[1] + places)) + "e-" + places);
+	}
+}
+
 
 window.onload = () => {
     const scene = document.querySelector('a-scene');
@@ -74,12 +88,13 @@ window.onload = () => {
         // than use it to load from remote APIs some places nearby
         loadPlaces(position.coords)
             .then((places) => {
-              places.forEach((place) => {                
+              //places.forEach((place) => {
+                place = places[0]                
                 const latitude = place.lat;
                 const longitude = place.lng;                    
                 // add place name
-                const placeText = document.createElement('a-text');
-                placeText.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
+                const placeText = document.createElement('a-text');                
+                placeText.setAttribute('gps-entity-place', `latitude: ${ round(parseInt(latitude) + 0.000146, 6).toString() }; longitude: ${ round(parseInt(longitude) + 0.000175, 6).toString() };`);
                 placeText.setAttribute('value', place.message);
                 placeText.setAttribute('scale', '25 25 25');
                 placeText.setAttribute('height', '30');
@@ -89,7 +104,7 @@ window.onload = () => {
                 });
 
                 scene.appendChild(placeText);
-              });
+              //});
             })
     },
       (err) => console.error('Error in retrieving position', err),
