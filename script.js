@@ -47,7 +47,7 @@ window.onload = () => {
                 const placeText = document.createElement('a-text');                
                 placeText.setAttribute('gps-entity-place', `latitude: ${ round(latitude + 0.000278, latitude.toString().length).toString() }; longitude: ${ round(longitude + 0.000985, longitude.toString().length).toString() };`);
                 placeText.setAttribute('value', place.message);
-                placeText.setAttribute('rotation', '0 -110 0');
+                placeText.setAttribute('rotation', '0 -80 0');
                 placeText.setAttribute('scale', '15 15 15');
                 placeText.setAttribute('height', '30');
                 
