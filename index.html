@@ -22,8 +22,7 @@
   </a-scene> -->
   <a-scene
     vr-mode-ui="enabled: false;"
-    embedded
-    arjs='sourceType: webcam; sourceWidth:1280; sourceHeight:960; displayWidth: 1280; displayHeight: 960; debugUIEnabled: false;'
+    embedded    
   >
     <a-assets>
       <img id="boxTexture" src="https://i.imgur.com/mYmmbrp.jpg">
@@ -31,9 +30,9 @@
       <img id="skyTexture" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/sechelt.jpg">
     </a-assets>
     
-    <a-box material="color: yellow" gps-entity-place="latitude: -23.674402; longitude: -46.737231" scale="25 25 25"/>
+    <a-box material="color: yellow" gps-entity-place="latitude: -23.674599; longitude: -46.736786" scale="40 40 40"/>
     <!-- <a-sphere color="yellow" radius="5" ></a-sphere> -->
-    <!-- <a-sky src="#skyTexture"></a-sky> -->
+    <a-sky src="#skyTexture"></a-sky>
     <a-camera gps-camera position="0 -75 0" rotation-reader></a-camera>
   </a-scene>
 </body>
