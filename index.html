@@ -20,9 +20,13 @@
     <a-sky color="#222"></a-sky>
     <a-camera gps-camera position="0 -75 0" rotation-reader></a-camera>
   </a-scene> -->
-  <a-scene>
+  <a-scene
+    vr-mode-ui="enabled: false;"
+    embedded
+    arjs='sourceType: webcam; sourceWidth:1280; sourceHeight:960; displayWidth: 1280; displayHeight: 960; debugUIEnabled: false;'
+  >
     <a-assets>
-      <!-- <img id="boxTexture" src="https://i.imgur.com/mYmmbrp.jpg"> -->
+      <img id="boxTexture" src="https://i.imgur.com/mYmmbrp.jpg">
       <img id="my-image" src="./star.png">
       <img id="skyTexture" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/sechelt.jpg">
     </a-assets>
