@@ -37,27 +37,27 @@ window.onload = () => {
     return navigator.geolocation.getCurrentPosition(function (position) {
 
         // than use it to load from remote APIs some places nearby
-        loadPlaces(position.coords)
-            .then((places) => {
-              //places.forEach((place) => {
-                place = places[0]                             
-                const latitude = position.coords.latitude;
-                const longitude = position.coords.longitude;
-                // add place name
-                const placeText = document.createElement('a-text');                
-                placeText.setAttribute('gps-entity-place', `latitude: ${ round(latitude + 0.000278, latitude.toString().length).toString() }; longitude: ${ round(longitude + 0.000985, longitude.toString().length).toString() };`);
-                placeText.setAttribute('value', place.message);
-                placeText.setAttribute('rotation', '0 -85 0');
-                placeText.setAttribute('scale', '15 15 15');
-                placeText.setAttribute('height', '30');
+        // loadPlaces(position.coords)
+        //     .then((places) => {
+        //       //places.forEach((place) => {
+        //         place = places[0]                             
+        //         const latitude = position.coords.latitude;
+        //         const longitude = position.coords.longitude;
+        //         // add place name
+        //         const placeText = document.createElement('a-text');                
+        //         placeText.setAttribute('gps-entity-place', `latitude: ${ round(latitude + 0.000278, latitude.toString().length).toString() }; longitude: ${ round(longitude + 0.000985, longitude.toString().length).toString() };`);
+        //         placeText.setAttribute('value', place.message);
+        //         placeText.setAttribute('rotation', '0 -85 0');
+        //         placeText.setAttribute('scale', '15 15 15');
+        //         placeText.setAttribute('height', '30');
                 
-                placeText.addEventListener('loaded', () => {
-                    window.dispatchEvent(new CustomEvent('gps-entity-place-loaded'))
-                });
+        //         placeText.addEventListener('loaded', () => {
+        //             window.dispatchEvent(new CustomEvent('gps-entity-place-loaded'))
+        //         });
 
-                scene.appendChild(placeText);
-              //});
-            })
+        //         scene.appendChild(placeText);
+        //       //});
+        //     })
     },
       (err) => console.error('Error in retrieving position', err),
         {
